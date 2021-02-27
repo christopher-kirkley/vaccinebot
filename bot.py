@@ -22,20 +22,20 @@ driver = webdriver.Firefox(options=options)
 def convention_center():
     """ Scrape legacy/convention center """
     url = 'https://lvc.lhs.org/myhealth/SignupAndSchedule/EmbeddedSchedule?dept=202001001&id=&vt=3324'
-    # driver.get(url)
-    # time.sleep(2)
-    # res = ''
-    # try:
-    #     res = driver.find_element_by_xpath("//div[@class='errormessage']/span").text
-    # except common.exceptions.NoSuchElementException:
-    #     pass
+    driver.get(url)
+    time.sleep(2)
+    res = ''
+    try:
+        res = driver.find_element_by_xpath("//div[@class='errormessage']/span").text
+    except common.exceptions.NoSuchElementException:
+        pass
 
-    # if len(res) > 0:
-    #     print('No appointments.')
-    # else:
-    if True:
+    if len(res) > 0:
+        print('No appointments.')
+
+    else:
         content=f'Vaccine appointments at convention center currently available, at the following link: {url}. Reply with STOP to opt out of these messages.'
-
+        
         for number in phone_numbers:
             try:
                 message = client.messages \
@@ -48,8 +48,5 @@ def convention_center():
                 pass
 
 if __name__ == '__main__':
-    while True:
-        print('run check')
-        convention_center()
-        time.sleep(900)
+    convention_center()
 

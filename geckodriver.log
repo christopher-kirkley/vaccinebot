@@ -4384,3 +4384,108 @@ JavaScript error: resource://activity-stream/lib/PersonalityProvider/Personality
 JavaScript error: resource://activity-stream/lib/PersonalityProvider/PersonalityProvider.jsm, line 84: TypeError: http://%(server)s/dummy/blocklist// is not a valid URL.
 JavaScript error: resource://activity-stream/lib/PersonalityProvider/PersonalityProvider.jsm, line 84: TypeError: http://%(server)s/dummy/blocklist// is not a valid URL.
 JavaScript error: resource://activity-stream/lib/PersonalityProvider/PersonalityProvider.jsm, line 84: TypeError: http://%(server)s/dummy/blocklist// is not a valid URL.
+1614406961388	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.j1L9kM9My7QJ"
+*** You are running in headless mode.
+[GFX1-]: glxtest: libGL.so.1 missing
+[GFX1-]: glxtest: libEGL missing
+
+(/usr/lib/firefox/firefox:36861): GLib-GObject-CRITICAL **: 06:22:42.362: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+
+(/usr/lib/firefox/firefox:36880): GLib-GObject-CRITICAL **: 06:22:42.575: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+
+(/usr/lib/firefox/firefox:36948): GLib-GObject-CRITICAL **: 06:22:44.425: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+1614406964500	Marionette	INFO	Listening on port 40159
+1614406964618	Marionette	WARN	TLS certificate errors will be ignored for this session
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1614407158007	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.bh0E5SZFdwQA"
+*** You are running in headless mode.
+[GFX1-]: glxtest: libGL.so.1 missing
+[GFX1-]: glxtest: libEGL missing
+
+(/usr/lib/firefox/firefox:37079): GLib-GObject-CRITICAL **: 06:25:59.022: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+
+(/usr/lib/firefox/firefox:37098): GLib-GObject-CRITICAL **: 06:25:59.243: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+
+(/usr/lib/firefox/firefox:37149): GLib-GObject-CRITICAL **: 06:26:01.822: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+1614407161867	Marionette	INFO	Listening on port 39823
+1614407161948	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://lvc.lhs.org/MyHealth/scripts/globalscripts/kswganalytics.js?updateDt=-198424182, line 1: SyntaxError: expected expression, got '<'
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1614407303921	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.K5ys1td9IZ8Y"
+*** You are running in headless mode.
+[GFX1-]: glxtest: libGL.so.1 missing
+[GFX1-]: glxtest: libEGL missing
+
+(/usr/lib/firefox/firefox:37235): GLib-GObject-CRITICAL **: 06:28:24.867: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+
+(/usr/lib/firefox/firefox:37254): GLib-GObject-CRITICAL **: 06:28:25.079: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+
+(/usr/lib/firefox/firefox:37312): GLib-GObject-CRITICAL **: 06:28:26.956: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+1614407307060	Marionette	INFO	Listening on port 42721
+1614407307157	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://lvc.lhs.org/MyHealth/scripts/globalscripts/kswganalytics.js?updateDt=-1798348335, line 1: SyntaxError: expected expression, got '<'
+1614407607132	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.04JuZWBZz8gl"
+*** You are running in headless mode.
+[GFX1-]: glxtest: libGL.so.1 missing
+[GFX1-]: glxtest: libEGL missing
+
+(/usr/lib/firefox/firefox:37541): GLib-GObject-CRITICAL **: 06:33:28.075: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+
+(/usr/lib/firefox/firefox:37560): GLib-GObject-CRITICAL **: 06:33:28.310: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+
+(/usr/lib/firefox/firefox:37625): GLib-GObject-CRITICAL **: 06:33:30.427: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+1614407610502	Marionette	INFO	Listening on port 40867
+1614407610562	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://lvc.lhs.org/MyHealth/scripts/globalscripts/kswganalytics.js?updateDt=-657396263, line 1: SyntaxError: expected expression, got '<'
+JavaScript error: https://lvc.lhs.org/MyHealth/scripts/globalscripts/kswganalytics.js?updateDt=-657396263, line 1: SyntaxError: expected expression, got '<'
+JavaScript error: https://lvc.lhs.org/MyHealth/scripts/globalscripts/kswganalytics.js?updateDt=-657396263, line 1: SyntaxError: expected expression, got '<'
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+JavaScript error: https://lvc.lhs.org/MyHealth/scripts/globalscripts/kswganalytics.js?updateDt=-1798348335, line 1: SyntaxError: expected expression, got '<'
+JavaScript error: https://lvc.lhs.org/MyHealth/scripts/globalscripts/kswganalytics.js?updateDt=-1798348335, line 1: SyntaxError: expected expression, got '<'
+1614408341109	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.d6zEtCu4oUk4"
+*** You are running in headless mode.
+[GFX1-]: glxtest: libGL.so.1 missing
+[GFX1-]: glxtest: libEGL missing
+
+(/usr/lib/firefox/firefox:37854): GLib-GObject-CRITICAL **: 06:45:42.093: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+
+(/usr/lib/firefox/firefox:37873): GLib-GObject-CRITICAL **: 06:45:42.307: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+
+(/usr/lib/firefox/firefox:37932): GLib-GObject-CRITICAL **: 06:45:44.158: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+1614408344352	Marionette	INFO	Listening on port 33547
+1614408344437	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://lvc.lhs.org/MyHealth/scripts/globalscripts/kswganalytics.js?updateDt=-151239551, line 1: SyntaxError: expected expression, got '<'
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1614408354017	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.Gby3VPjJf2fU"
+*** You are running in headless mode.
+[GFX1-]: glxtest: libGL.so.1 missing
+[GFX1-]: glxtest: libEGL missing
+
+(/usr/lib/firefox/firefox:38011): GLib-GObject-CRITICAL **: 06:45:55.027: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+
+(/usr/lib/firefox/firefox:38030): GLib-GObject-CRITICAL **: 06:45:55.233: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+
+(/usr/lib/firefox/firefox:38081): GLib-GObject-CRITICAL **: 06:45:57.352: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+1614408357423	Marionette	INFO	Listening on port 39497
+1614408357449	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://lvc.lhs.org/MyHealth/scripts/globalscripts/kswganalytics.js?updateDt=1650079241, line 1: SyntaxError: expected expression, got '<'
+JavaScript error: https://lvc.lhs.org/MyHealth/scripts/globalscripts/kswganalytics.js?updateDt=1650079241, line 1: SyntaxError: expected expression, got '<'
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+JavaScript error: https://lvc.lhs.org/MyHealth/scripts/globalscripts/kswganalytics.js?updateDt=-1798348335, line 1: SyntaxError: expected expression, got '<'
+JavaScript error: https://lvc.lhs.org/MyHealth/scripts/globalscripts/kswganalytics.js?updateDt=-1798348335, line 1: SyntaxError: expected expression, got '<'
