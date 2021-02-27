@@ -22,13 +22,13 @@ driver = webdriver.Firefox(options=options)
 def convention_center():
     """ Scrape legacy/convention center """
     url = 'https://lvc.lhs.org/myhealth/SignupAndSchedule/EmbeddedSchedule?dept=202001001&id=&vt=3324'
-    driver.get(url)
-    time.sleep(2)
-    res = ''
-    try:
-        res = driver.find_element_by_xpath("//div[@class='errormessage']/span").text
-    except common.exceptions.NoSuchElementException:
-        pass
+    # driver.get(url)
+    # time.sleep(2)
+    # res = ''
+    # try:
+    #     res = driver.find_element_by_xpath("//div[@class='errormessage']/span").text
+    # except common.exceptions.NoSuchElementException:
+    #     pass
 
     # if len(res) > 0:
     #     print('No appointments.')
@@ -41,7 +41,7 @@ def convention_center():
                 message = client.messages \
                         .create(
                                 body=content,
-                                from_='+18162811552',
+                                from_=my_number,
                                 to=number
                                 )
             except exceptions.TwilioRestException:
