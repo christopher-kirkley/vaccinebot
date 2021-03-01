@@ -6,6 +6,7 @@ import os
 from twilio.rest import Client
 from twilio.base import exceptions
 from config import *
+from datetime import datetime
 
 account_sid = TWILIO_ACCOUNT_SID
 auth_token = TWILIO_AUTH_TOKEN
@@ -18,6 +19,10 @@ options = Options()
 options.headless = True
 driver = webdriver.Firefox(options=options)
 
+def timestamp():
+    now = datetime.now()
+    dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
+    return dt_string
 
 def convention_center():
     """ Scrape legacy/convention center """
@@ -31,8 +36,7 @@ def convention_center():
         pass
 
     if len(res) > 0:
-        print('No appointments.')
-
+        print(f'{timestamp()} - No appointments.')
     else:
         content=f'Vaccine appointments at convention center currently available, at the following link: {url}. Reply with STOP to opt out of these messages.'
         
@@ -48,5 +52,7 @@ def convention_center():
                 pass
 
 if __name__ == '__main__':
-    convention_center()
+    while True:
+        convention_center()
+        time.sleep(300)
 
