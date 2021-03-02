@@ -28,7 +28,7 @@ def convention_center():
     """ Scrape legacy/convention center """
     url = 'https://lvc.lhs.org/myhealth/SignupAndSchedule/EmbeddedSchedule?dept=202001001&id=&vt=3324'
     driver.get(url)
-    time.sleep(2)
+    time.sleep(5)
     res = ''
     try:
         res = driver.find_element_by_xpath("//div[@class='errormessage']/span").text
@@ -38,7 +38,7 @@ def convention_center():
     if len(res) > 0:
         print(f'{timestamp()} - No appointments.')
     else:
-        content=f'Vaccine appointments at convention center currently available, at the following link: {url}. Reply with STOP to opt out of these messages.'
+        content=f'Greetings! Vaccine appointments from Legacy Health at the Oregon Convention Center currently available, at the following link: {url}. Reply with STOP to opt out of these messages.'
         
         for number in phone_numbers:
             try:
