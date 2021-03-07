@@ -15,32 +15,11 @@ auth_token = TWILIO_AUTH_TOKEN
 
 client = Client(account_sid, auth_token)
 
-
-""" Set up browser """
-options = Options()
-options.headless = True
-driver = webdriver.Firefox(options=options)
-
 def timestamp():
     now = datetime.now()
     dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
     return dt_string
 
-def convention_center():
-    """ Scrape legacy/convention center """
-    url = 'https://lvc.lhs.org/myhealth/SignupAndSchedule/EmbeddedSchedule?dept=202001001&id=&vt=3324'
-    driver.get(url)
-    time.sleep(5)
-    res = ''
-    try:
-        res = driver.find_element_by_xpath("//div[@class='errormessage']/span").text
-    except common.exceptions.NoSuchElementException:
-        pass
-
-    if len(res) > 0:
-        print(f'{timestamp()} - No appointments.')
-    else:
-        content=f'Greetings! Vaccine appointments from Legacy Health at the Oregon Convention Center currently available, at the following link: {url}. Reply with STOP to opt out of these messages.'
 
 def send_sms(content):
     for number in phone_numbers:
@@ -55,80 +34,97 @@ def send_sms(content):
             pass
 
 walgreens_locations = {
-        'walgreens': 'https://www.walgreens.com/findcare/vaccination/covid-19/location-screening'
+        'Walgreens': 'https://www.walgreens.com/findcare/vaccination/covid-19?ban=covid_vaccine_landing_schedule'
         }
 
-def walgreens(url):
+def walgreens(url, driver):
     driver.get(url)
-    time.sleep(1)
-    location = driver.find_element_by_id("inputLocation")
-    location.clear()
-    location.send_keys('97219')
-    search_button = driver.find_element_by_xpath("//button[@class='btn']")
-    search_button.click()
-    time.sleep(1)
-
+    time.sleep(4)
     try:
-        msg = driver.find_element_by_xpath("//section[@class='mt40 mb40']/div[1]/a/span[2]/p").text
-
-        if msg == 'Appointments unavailable':
-            print('No appointments')
-        else:
-            return True
+        button = driver.find_element_by_xpath("//a[@href='/findcare/vaccination/covid-19/location-screening']")
+        button.click()
+        time.sleep(4)
+        print('button clicked')
+        location = driver.find_element_by_id("inputLocation")
+        location.clear()
+        location.send_keys('97219')
+        search_button = driver.find_element_by_xpath("//button[@class='btn']")
+        search_button.click()
+        print('search location input')
     except common.exceptions.NoSuchElementException:
         print("Error scraping")
         return False
 
+    time.sleep(2)
 
-def costco(url):
+
+    if "Appointments unavailable" in driver.page_source:
+        print('No appointments')
+    else:
+        print("appointment!")
+        return True
+
+
+def costco(url, driver):
     driver.get(url)
     time.sleep(5)
-    button = driver.find_element_by_xpath("//a[@class='chevron-row ']")
-    button.click()
+    try:
+        button = driver.find_element_by_xpath("//a[@class='chevron-row ']")
+        button.click()
+    except common.exceptions.NoSuchElementException:
+        print("Error scraping, no button")
+        return False
+
     time.sleep(3)
 
-    try:
-        msg = driver.find_element_by_xpath("//div[@id='SelectEmployeeView']/div[1]/div[1]/div[2]/p[1]/span[1]").text
+    if "sorry" in driver.page_source:
+        print('No appointments')
+    else:
+        return True
 
-        if msg == "We're sorry, but no":
-            print('No appointments')
-        else:
-            return True
-
-    except common.exceptions.NoSuchElementException:
-        print("Error scraping")
-        return False
 
 
 costco_locations = {
-        'costco_aloha': 'https://book-costcopharmacy.appointment-plus.com/ctnqxln8/?e_id=5363',
-        'costco_tigard': 'https://book-costcopharmacy.appointment-plus.com/ctnt6bsy/?e_id=5389',
-        'costco_hillsboro': 'https://book-costcopharmacy.appointment-plus.com/ctv00k3k/?e_id=5391',
-        'costco_portland': 'https://book-costcopharmacy.appointment-plus.com/ctnq90z4/?e_id=5371',
+        'Costco Aloha': 'https://book-costcopharmacy.appointment-plus.com/ctnqxln8/?e_id=5363',
+        'Costco Tigard': 'https://book-costcopharmacy.appointment-plus.com/ctnt6bsy/?e_id=5389',
+        'Costco Hillsboro': 'https://book-costcopharmacy.appointment-plus.com/ctv00k3k/?e_id=5391',
+        'Costco Portland': 'https://book-costcopharmacy.appointment-plus.com/ctnq90z4/?e_id=5371',
         }
 
-
-
-if __name__ == '__main__':
+def main():
+    """ Set up browser """
+    options = Options()
+    options.headless = True
+    driver = webdriver.Firefox(options=options)
+    print(timestamp())
     locations = {}
     for store, url in walgreens_locations.items():
         print(f'trying {store}...')
-        appt = walgreens(url)
+        appt = walgreens(url, driver)
         if appt == True:
-            locations.append(f'{store}: {url}')
+            locations[store] = url
     for store, url in costco_locations.items():
         print(f'trying {store}...')
-        appt = costco(url)
+        appt = costco(url, driver)
         if appt == True:
-            locations.append(f'{store}: {url}')
+            locations[store] = url
         time.sleep(5)
-    print(locations)
     if len(locations) > 0:
+        print(locations)
         string = ''
         for location, url in locations.items():
             string = string + f'{location}'
-        content=f'Greetings! Vaccine appointments available at the following locations: {string}. Reply with STOP to opt out of these messages.'
+        content=f'Greetings! Vaccine appointments available, check the following locations: {string}. Reply with STOP to opt out of these messages.'
         send_sms(content)
+    driver.close()
+
+
+if __name__ == '__main__':
+    while True:
+        main()
+        print('sleeping for 10 min .... ')
+        time.sleep(600)
+
 
 
 
