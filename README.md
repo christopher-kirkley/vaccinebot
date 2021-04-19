@@ -7,12 +7,22 @@ A minimal Covid vaccine appointment finder. Web scrapes various locations, suppo
 - Selenium
 - Twilio
 
-## Use
-Requires a Twilio account for SMS functionality.  
+## Config
+Requires a Twilio account for SMS functionality.   
 
 Config should be stored in a `config.py` file, containing the following:  
 
-TWILIO_ACCOUNT_SID=''
-TWILIO_AUTH_TOKEN=''
-PHONE_NUMBERS=['', '', '']
+TWILIO_ACCOUNT_SID=''. 
+TWILIO_AUTH_TOKEN=''. 
+PHONE_NUMBERS=['', '', '']. 
+
+## Use
+
+Install requirements  
+`python -m pip install -r requirements.txt`
+
+Run
+`python bot.py`
+
+Script will runs headless, but will print out some minimal information to console in addition to sending SMS. Scraping repeats every 10 minutes. Script can be modified to change increments, or locations (stored in a dict object in bot.py).
 
