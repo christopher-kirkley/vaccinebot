@@ -58,11 +58,16 @@ def walgreens(url, driver):
     time.sleep(2)
 
 
-    if "Appointments unavailable" in driver.page_source:
-        print('No appointments')
+    if "COVID-19 Vaccination" in driver.page_source:
+        if "Appointments unavailable" in driver.page_source:
+            print('No appointments')
+        else:
+            print("appointment!")
+            return True
+
     else:
-        print("appointment!")
-        return True
+        print("Error scraping")
+        return False
 
 
 def costco(url, driver):
