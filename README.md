@@ -13,7 +13,7 @@ Requires a Twilio account for SMS functionality.
 Config should be stored in a `config.py` file, containing the following:  
 
 TWILIO_ACCOUNT_SID=account_sid  
-TWILIO_AUTH_TOKEN=auth_token
+TWILIO_AUTH_TOKEN=auth_token  
 PHONE_NUMBERS=[number1, number2]  
 
 ## Use
